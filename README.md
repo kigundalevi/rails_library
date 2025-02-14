@@ -54,7 +54,7 @@ Steps:
 1. Clone the repository:
    ```
    git clone <repository-url>
-   cd library-management-system
+   cd rails_library
    ```
 2. Install dependencies:
    ```
@@ -69,31 +69,21 @@ Steps:
    ```
    rails server
    ```
-
-### Configuration
-
-1. Set environment variables in `.env` file:
-   ```
-   RAILS_MASTER_KEY=<your-master-key>
-   ```
-2. Configure database in `config/database.yml`
-3. Set up Action Cable in `config/cable.yml`
-
 ### Common Use Cases
 
-1. Adding a new book:
+1. Adding a new book:NB:add this record to see entry on the front end 
    ```ruby
    Book.create(title: "1984", author: "George Orwell", isbn: "9780451524935")
    ```
 
-2. Borrowing a book:
+2. Borrowing a book:- just a working of backend no need to run this 
    ```ruby
    user = User.find(1)
    book = Book.find(1)
    Borrowing.create(user: user, book: book, borrowed_date: Date.today, due_date: 2.weeks.from_now)
    ```
 
-3. Returning a book:
+3. Returning a book:-this to functionality already implemented in the front end
    ```ruby
    borrowing = Borrowing.find(1)
    borrowing.update(returned_date: Date.today)
