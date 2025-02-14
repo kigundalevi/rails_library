@@ -1,0 +1,38 @@
+
+<h1>Available Books</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.isbn %></td>
+        <td>
+          <% if book.borrowings.where(returned_date: nil).exists? %>
+            <span class="unavailable">Borrowed</span>
+          <% else %>
+            <span class="available">Available</span>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to 'View Details', book_path(book) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if current_user&.admin? %>
+  <%= link_to 'Add New Book', new_book_path, class: 'button' %>
+<% end %>

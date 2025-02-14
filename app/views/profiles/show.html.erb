@@ -1,0 +1,74 @@
+
+<h1>My Profile</h1>
+
+<div class="borrowed-books">
+  <h2>Currently Borrowed Books</h2>
+  
+  <% if @current_borrowings.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Borrowed Date</th>
+          <th>Due Date</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @current_borrowings.each do |borrowing| %>
+          <tr>
+            <td><%= borrowing.book.title %></td>
+            <td><%= borrowing.book.author %></td>
+            <td><%= borrowing.borrowed_date.strftime('%B %d, %Y') %></td>
+            <td>
+              <% if borrowing.due_date < Date.today %>
+                <span class="overdue"><%= borrowing.due_date.strftime('%B %d, %Y') %></span>
+              <% else %>
+                <%= borrowing.due_date.strftime('%B %d, %Y') %>
+              <% end %>
+            </td>
+            <td>
+              <%= button_to 'Return Book', return_book_borrowing_path(borrowing), 
+                  method: :patch, 
+                  class: 'button return-button' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>You haven't borrowed any books yet.</p>
+  <% end %>
+</div>
+
+<div class="borrowing-history">
+  <h2>Borrowing History</h2>
+  
+  <% if @past_borrowings.any? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Borrowed Date</th>
+          <th>Returned Date</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @past_borrowings.each do |borrowing| %>
+          <tr>
+            <td><%= borrowing.book.title %></td>
+            <td><%= borrowing.book.author %></td>
+            <td><%= borrowing.borrowed_date.strftime('%B %d, %Y') %></td>
+            <td><%= borrowing.returned_date.strftime('%B %d, %Y') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No borrowing history yet.</p>
+  <% end %>
+</div>

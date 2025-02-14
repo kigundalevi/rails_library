@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Library App</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_importmap_tags %>
+
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <%= link_to 'Library App', root_path %>
+      </div>
+      <div class="navbar-menu">
+        <%= link_to 'Books', books_path %>
+        <% if user_signed_in? %>
+          <%= link_to 'My Profile', profile_path %>
+          <%= button_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'button' %>
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path %>
+          <%= link_to 'Sign Up', new_user_registration_path %>
+        <% end %>
+      </div>
+    </nav>
+
+    <div class="container">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+      <%= yield %>
+    </div>
+  </body>
+</html>

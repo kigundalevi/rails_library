@@ -1,0 +1,33 @@
+
+<div class="book-details">
+  <h1><%= @book.title %></h1>
+
+  <div class="book-info">
+    <p><strong>Author:</strong> <%= @book.author %></p>
+    <p><strong>ISBN:</strong> <%= @book.isbn %></p>
+    <p>
+      <strong>Status:</strong>
+      <% if @book.borrowings.where(returned_date: nil).exists? %>
+        <span class="unavailable">Currently Borrowed</span>
+      <% else %>
+        <span class="available">Available</span>
+      <% end %>
+    </p>
+  </div>
+
+  <div class="actions">
+    <% if user_signed_in? %>
+      <% if @book.borrowings.where(returned_date: nil).exists? %>
+        <% if @book.borrowings.where(returned_date: nil).first.user == current_user %>
+          <%= button_to 'Return Book', return_book_borrowing_path(@book.borrowings.where(returned_date: nil).first), 
+              method: :patch, 
+              class: 'button return-button' %>
+        <% end %>
+      <% else %>
+        <%= button_to 'Borrow Book', book_borrowings_path(@book), 
+            method: :post, 
+            class: 'button borrow-button' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
