@@ -1,7 +1,7 @@
 
 class BooksController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :ensure_admin!, only: [:new, :create]
+  before_action :ensure_admin!, only: [:admin, :new, :create]
 
   def index
     @books = Book.all
@@ -30,6 +30,10 @@ class BooksController < ApplicationController
     unless current_user&.admin?
       redirect_to books_path, alert: 'You are not authorized to perform this action.'
     end
+  end
+
+  def admin
+    @books = Book.all
   end
 
   def book_params

@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   
   resources :books do
     resources :borrowings, only: [:create]
+    collection do
+      get 'admin', to: 'books#admin'
+    end
   end
   
   resources :borrowings, only: [] do

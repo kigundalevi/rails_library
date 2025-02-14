@@ -9980,3 +9980,207 @@ Started GET "/socket.io/?username=Fierce%20Serpent&EIO=4&transport=polling&t=PK4
   
 ActionController::RoutingError (No route matches [GET] "/socket.io"):
   
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '123admin@gmail.com' LIMIT 1 /*application='LibraryApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='LibraryApp'*/[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = '123admin@gmail.com' LIMIT 1 /*application='LibraryApp'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at", "admin") VALUES ('123admin@gmail.com', '$2a$12$PVJkfW2pKpjbuAwZSfpqCuQqH6RpOhTvNyYpEZmFIIpNUeXWub05W', NULL, NULL, NULL, '2025-02-14 16:23:06.444103', '2025-02-14 16:23:06.444103', 0) RETURNING "id" /*application='LibraryApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='LibraryApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='LibraryApp'*/[0m
+  [1m[36mUser Update (1.6ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = '2025-02-14 16:23:06.452883', "admin" = 1 WHERE "users"."id" = 4 /*application='LibraryApp'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='LibraryApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='LibraryApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LibraryApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LibraryApp'*/[0m
+Started GET "/" for 127.0.0.1 at 2025-02-14 19:23:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='LibraryApp'*/[0m
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (2.1ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:16
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 2 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 3 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 4 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 5 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 6 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 7 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 8 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 9 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 10 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 11 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  Rendered books/index.html.erb within layouts/application (Duration: 418.7ms | GC: 41.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 493.9ms | GC: 46.9ms)
+Completed 200 OK in 661ms (Views: 472.9ms | ActiveRecord: 27.5ms (11 queries, 0 cached) | GC: 46.9ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2025-02-14 19:24:02 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 10.3ms | GC: 0.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 41.8ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.9ms | GC: 0.5ms)
+Completed 200 OK in 226ms (Views: 53.7ms | ActiveRecord: 2.2ms (0 queries, 0 cached) | GC: 2.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2025-02-14 19:24:37 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "0"}, "commit" => "Sign in"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '123@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='LibraryApp',controller='sessions'*/[0m
+Completed 401 Unauthorized in 123ms (ActiveRecord: 2.3ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "0"}, "commit" => "Sign in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 4.8ms | GC: 1.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 39.4ms | GC: 3.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | GC: 3.9ms)
+Completed 200 OK in 416ms (Views: 53.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 10.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2025-02-14 19:24:51 +0300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "remember_me" => "0"}, "commit" => "Sign in"}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = '123admin@gmail.com' ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='LibraryApp',controller='sessions'*/[0m
+Redirected to http://127.0.0.1:3000/
+Completed 303 See Other in 466ms (ActiveRecord: 4.6ms (1 query, 0 cached) | GC: 22.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2025-02-14 19:24:51 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (1.7ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:16
+  [1m[36mBorrowing Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 2 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 3 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 4 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 5 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 6 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 7 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 8 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 9 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 10 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 11 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:36
+  Rendered books/index.html.erb within layouts/application (Duration: 260.5ms | GC: 47.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 275.6ms | GC: 48.9ms)
+Completed 200 OK in 312ms (Views: 274.7ms | ActiveRecord: 3.6ms (12 queries, 0 cached) | GC: 50.4ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at 2025-02-14 19:25:02 +0300
+Processing by BooksController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='new',application='LibraryApp',controller='books'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering books/new.html.erb within layouts/application
+  Rendered books/new.html.erb within layouts/application (Duration: 46.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 63.0ms | GC: 0.0ms)
+Completed 200 OK in 130ms (Views: 66.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/books" for 127.0.0.1 at 2025-02-14 19:25:31 +0300
+Processing by BooksController#create as HTML
+  Parameters: {"authenticity_token" => "[FILTERED]", "book" => {"title" => "how to get rich", "author" => "Levi kigunda", "isbn" => "22334-44575"}, "commit" => "Add Book"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='create',application='LibraryApp',controller='books'*/[0m
+  [1m[36mTRANSACTION (3.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='LibraryApp',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:20:in 'BooksController#create'
+  [1m[36mBook Exists? (14.5ms)[0m  [1m[34mSELECT 1 AS one FROM "books" WHERE "books"."isbn" = '22334-44575' LIMIT 1 /*action='create',application='LibraryApp',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:20:in 'BooksController#create'
+  [1m[36mBook Create (0.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "author", "isbn", "created_at", "updated_at") VALUES ('how to get rich', 'Levi kigunda', '22334-44575', '2025-02-14 16:25:31.165175', '2025-02-14 16:25:31.165175') RETURNING "id" /*action='create',application='LibraryApp',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:20:in 'BooksController#create'
+  [1m[36mTRANSACTION (7.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='LibraryApp',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:20:in 'BooksController#create'
+Redirected to http://127.0.0.1:3000/books/12
+Completed 302 Found in 180ms (ActiveRecord: 25.5ms (3 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/books/12" for 127.0.0.1 at 2025-02-14 19:25:31 +0300
+Processing by BooksController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = 12 LIMIT 1 /*action='show',application='LibraryApp',controller='books'*/[0m
+  ↳ app/controllers/books_controller.rb:11:in 'BooksController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mBorrowing Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 12 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='show',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/show.html.erb:10
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/show.html.erb:19
+  [1m[36mCACHE Borrowing Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 12 AND "borrowings"."returned_date" IS NULL LIMIT 1[0m
+  ↳ app/views/books/show.html.erb:20
+  Rendered books/show.html.erb within layouts/application (Duration: 33.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.9ms | GC: 0.0ms)
+Completed 200 OK in 119ms (Views: 47.1ms | ActiveRecord: 1.1ms (4 queries, 1 cached) | GC: 0.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2025-02-14 19:25:36 +0300
+Processing by ProfilesController#show as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='show',application='LibraryApp',controller='profiles'*/[0m
+  Rendering layout layouts/application.html.erb
+  Rendering profiles/show.html.erb within layouts/application
+  [1m[36mBorrowing Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."user_id" = 4 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='show',application='LibraryApp',controller='profiles'*/[0m
+  ↳ app/views/profiles/show.html.erb:7
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."user_id" = 4 AND "borrowings"."returned_date" IS NOT NULL LIMIT 1 /*action='show',application='LibraryApp',controller='profiles'*/[0m
+  ↳ app/views/profiles/show.html.erb:49
+  Rendered profiles/show.html.erb within layouts/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.7ms | GC: 0.0ms)
+Completed 200 OK in 86ms (Views: 21.7ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at 2025-02-14 19:25:38 +0300
+Processing by BooksController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering books/index.html.erb within layouts/application
+  [1m[36mBook Load (0.2ms)[0m  [1m[34mSELECT "books".* FROM "books" /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:16
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 2 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 3 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 4 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 5 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 6 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 7 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 8 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 9 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 10 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 11 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mBorrowing Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "borrowings" WHERE "borrowings"."book_id" = 12 AND "borrowings"."returned_date" IS NULL LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:22
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 ORDER BY "users"."id" ASC LIMIT 1 /*action='index',application='LibraryApp',controller='books'*/[0m
+  ↳ app/views/books/index.html.erb:36
+  Rendered books/index.html.erb within layouts/application (Duration: 150.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 160.8ms | GC: 0.0ms)
+Completed 200 OK in 194ms (Views: 160.9ms | ActiveRecord: 2.3ms (13 queries, 0 cached) | GC: 0.0ms)
+
+

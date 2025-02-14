@@ -1,0 +1,29 @@
+<h1>Admin Books Dashboard</h1>
+
+<div class="admin-actions">
+  <%= link_to 'Add New Book', new_book_path, class: 'button' %>
+</div>
+
+<table class="books-table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>ISBN</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.isbn %></td>
+        <td>
+          <%= link_to 'View', book_path(book), class: 'button' %>
+          <%= link_to 'Edit', edit_book_path(book), class: 'button' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
